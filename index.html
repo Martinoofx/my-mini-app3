@@ -9,18 +9,20 @@
 <body>
     <div class="container">
         <h1>Welcome to My Mini App</h1>
-        <div class="balance">
+        <div class="stats">
             <p>Balance: <span id="balance">0.53 TON</span></p>
             <p>Hashrate: <span id="hashrate">13 GH/s</span></p>
         </div>
-        <button id="boostButton" onclick="boostHashrate()">Boost Your Hashrate</button>
-        <div id="boosters">
-            <button onclick="rentBooster('Core i9')">Rent Core i9 - 10 GH/s</button>
-            <button onclick="rentBooster('RTX 4090')">Rent RTX 4090 - 100 GH/s</button>
-            <button onclick="rentBooster('A100 GPU')">Rent A100 GPU - 1000 GH/s</button>
+        <button class="boost-btn">Boost Your Hashrate</button>
+
+        <div class="mining-options">
+            <h3>Rent a Miner</h3>
+            <button class="rent-btn" data-miner="Core i9">Rent Core i9 - 10 GH/s</button>
+            <button class="rent-btn" data-miner="RTX 4090">Rent RTX 4090 - 100 GH/s</button>
+            <button class="rent-btn" data-miner="A100 GPU">Rent A100 GPU - 1000 GH/s</button>
         </div>
-        <button id="claimButton" onclick="claimReward()">Claim Daily Reward</button>
-        <button id="inviteButton" onclick="inviteFriends()">Invite Friends</button>
+        <button class="claim-btn">Claim Daily Reward</button>
+        <button class="invite-btn">Invite Friends</button>
     </div>
 
     <script src="app.js"></script>
