@@ -1,58 +1,75 @@
-/* Boost rész stílusok */
-.boost-container {
-    text-align: center;
-    margin-top: 50px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
 }
 
-.boost-btn {
-    padding: 15px;
-    font-size: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-.boost-options {
-    display: none;
-    margin-top: 20px;
+h1 {
+  text-align: center;
+  color: #333;
 }
 
-.boost-card {
-    display: inline-block;
-    width: 200px;
-    margin: 15px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-align: center;
+#cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
 
-.boost-card img {
-    width: 80%;
-    height: auto;
-    margin-bottom: 10px;
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-.boost-details {
-    display: none;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #e7e7e7;
-    border-radius: 10px;
+.card img {
+  width: 100%;
+  border-radius: 8px;
 }
 
-.boost-details p {
-    font-size: 18px;
-    margin-bottom: 10px;
+.card h3 {
+  font-size: 18px;
+  color: #333;
 }
 
-.boost-details button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+.card p {
+  font-size: 14px;
+  color: #777;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+#selectedCardDetails {
+  margin-top: 40px;
+  text-align: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
 }
