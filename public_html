@@ -1,0 +1,33 @@
+<?php
+
+// Binance API kulcsok
+$apiKey = 'XmKVJjLRhsZU7g00svgnbx3HhZ80iFvIZjHdarBqpsfufNGg8Q43lG2r7GYkXRfu';
+$secretKey = 'EFfuShstzyxn8zNjI8Rh1WV6dGnEYSWZVWGd2kxtX2DlVCDsjLDySZ6tVHRoYc47';
+
+// A Binance Pay API endpointja
+$endpoint = 'https://api.binance.com/api/v3/'; // Ezt módosíthatod a megfelelő endpoint-ra
+
+// API hívás létrehozása (példa GET request)
+$headers = [
+    'X-MBX-APIKEY: ' . $apiKey
+];
+
+$ch = curl_init();
+
+// Beállítjuk a kívánt API hívást (pl. aktuális árak lekérdezése)
+curl_setopt($ch, CURLOPT_URL, $endpoint . "ping");
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+// API válasz
+$response = curl_exec($ch);
+
+if ($response === FALSE) {
+    echo "Error: " . curl_error($ch);
+} else {
+    // Ha sikerült, kiírjuk a válasz tartalmát
+    echo "Response: " . $response;
+}
+
+curl_close($ch);
+?>
