@@ -1,23 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Mini App</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to My Mini App</h1>
-        <p>Balance: 0.53 TON</p>
-        <p>Hashrate: 13 GH/s</p>
-        <button class="boost-btn">Boost Your Hashrate</button>
-        <button class="rent-btn">Rent Core i9</button>
-        <button class="rent-btn">Rent RTX 4090</button>
-        <button class="rent-btn">Rent A100 GPU</button>
-        <button class="claim-btn">Claim Daily Reward</button>
-        <button class="invite-btn">Invite Friends</button>
+<div class="boost-container">
+    <!-- Boost gomb -->
+    <button class="boost-btn" onclick="showBoostOptions()">Boost Your Hashrate</button>
+    
+    <!-- Videokártyák megjelenítése -->
+    <div class="boost-options" id="boost-options">
+        <div class="boost-card" onclick="selectBoost('Core i9')">
+            <img src="core-i9-icon.png" alt="Core i9">
+            <h3>Core i9 - 10 GH/s</h3>
+        </div>
+        <div class="boost-card" onclick="selectBoost('RTX 4090')">
+            <img src="rtx-4090-icon.png" alt="RTX 4090">
+            <h3>RTX 4090 - 100 GH/s</h3>
+        </div>
+        <div class="boost-card" onclick="selectBoost('A100 GPU')">
+            <img src="a100-gpu-icon.png" alt="A100 GPU">
+            <h3>A100 GPU - 1000 GH/s</h3>
+        </div>
     </div>
-    <script src="app.js"></script>
-</body>
-</html>
+    
+    <!-- Részletes adatok megjelenítése a kiválasztott kártyához -->
+    <div class="boost-details" id="boost-details">
+        <h2 id="boost-name">Select a card</h2>
+        <p id="rent-period">Rent Period: 30 Days</p>
+        <p id="daily-profit">Daily Profit: 0</p>
+        <p id="total-profit">Total Profit: 0</p>
+        <p id="quantity">Quantity: <input type="number" id="quantity-input" value="1"></p>
+        <p id="price">Price: 0</p>
+        <button onclick="rentBoost()">Rent Miner</button>
+    </div>
+</div>
