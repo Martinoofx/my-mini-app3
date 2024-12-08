@@ -45,5 +45,39 @@
   </div>
 
   <script src="app.js"></script>
+
+  <script>
+    // Felhasználó kártya kiválasztása
+    function selectCard(cardName) {
+      document.getElementById("selectedCardName").innerText = cardName;
+      // Itt változtathatsz az árakon, napi profiton, stb.
+    }
+
+    // Rent Miner gomb meghívása
+    function confirmRent() {
+      const selectedCard = document.getElementById("selectedCardName").innerText;
+      const price = document.getElementById("price").innerText;
+
+      // Küldd el a backendnek az adatokat a Binance Pay tranzakcióhoz
+      fetch('/initiate-payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          card: selectedCard,
+          price: price
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Ha a backend visszaadja a fizetési linket, irányítsd át
+        window.location.href = data.paymentLink;
+      })
+      .catch(error => {
+        console.error('Error initiating payment:', error);
+      });
+    }
+  </script>
 </body>
 </html>
