@@ -20,7 +20,7 @@ function selectCard(cardName) {
     }
   };
 
-  // Kiválasztott kártya adatainak frissítése
+  // Update selected card details
   document.getElementById("selectedCardName").innerText = cardName;
   document.getElementById("selectedCardImage").src = cardDetails[cardName].image;
   document.getElementById("dailyProfit").innerText = cardDetails[cardName].dailyProfit;
@@ -29,5 +29,32 @@ function selectCard(cardName) {
 }
 
 function confirmRent() {
-  alert("You have successfully rented the miner!");
+  // Get selected card details
+  let selectedCardName = document.getElementById("selectedCardName").innerText;
+  let price = document.getElementById("price").innerText.replace(' TON', '').replace(',', ''); // Remove "TON" and commas
+
+  // Send a request to the backend to initiate the payment with Binance Pay
+  fetch('/initiate-payment', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      cardName: selectedCardName,
+      price: price
+    })
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Redirect to Binance Pay payment link
+      window.location.href = data.paymentLink;
+    } else {
+      alert("Payment initiation failed.");
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Error initiating payment');
+  });
 }
